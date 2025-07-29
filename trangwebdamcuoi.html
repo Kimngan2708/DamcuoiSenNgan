@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đám cưới Linh & Huy</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      background: #fff8f2;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background: #ffe0e6;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 3em;
+      color: #c25c5c;
+    }
+    .section {
+      padding: 60px 20px;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 2em;
+      margin-top: 20px;
+    }
+    .time-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-width: 80px;
+    }
+    .label {
+      font-size: 0.5em;
+      color: #888;
+    }
+    .btn {
+      padding: 12px 24px;
+      background: #c25c5c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    form input {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .nav {
+      background: #fcd3d9;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #c25c5c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="#wedding">Lễ cưới</a>
+  <a href="#gallery">Hình ảnh</a>
+  <a href="#rsvp">Xác nhận</a>
+</div>
+
+<header>
+  <h1>SEN & NGÂN</h1>
+  <p>Chúng tôi sắp cưới vào lúc <strong>10:00 sáng - 31/08/2025</strong></p>
+
+  <div class="countdown" id="countdown">
+    <div class="time-box">
+      <div id="days">--</div>
+      <div class="label">Ngày</div>
+    </div>
+    <div class="time-box">
+      <div id="hours">--</div>
+      <div class="label">Giờ</div>
+    </div>
+    <div class="time-box">
+      <div id="minutes">--</div>
+      <div class="label">Phút</div>
+    </div>
+    <div class="time-box">
+      <div id="seconds">--</div>
+      <div class="label">Giây</div>
+    </div>
+  </div>
+</header>
+
+<div class="section" id="wedding">
+  <h2>💒 Thông tin lễ cưới</h2>
+  <p>📍 Nhà hàng Diamond Palace, Quận 1, TP.HCM</p>
+  <p>🕒 Thời gian: 10:00 sáng - Ngày 31/08/2025</p>
+  <a class="btn" href="#rsvp">Xác nhận tham dự</a>
+</div>
+
+<div class="section" id="gallery">
+  <h2>📸 Hình ảnh kỷ niệm</h2>
+  <div class="gallery">
+    <img src="ANHCUOI/1.jpg" alt="Ảnh cưới 1">
+    <img src="ANHCUOI/2.jpg" alt="Ảnh cưới 2">
+    <img src="ANHCUOI/3.jpg" alt="Ảnh cưới 2">
+    <img src="ANHCUOI/4.jpg" alt="Ảnh cưới 2">
+  </div>
+</div>
+
+<div class="section" id="rsvp">
+  <h2>🎉 Xác nhận tham dự</h2>
+  <form>
+    <input type="text" placeholder="Tên của bạn" required><br>
+    <input type="number" placeholder="Số người đi cùng"><br>
+    <button class="btn" type="submit">Gửi lời chúc</button>
+  </form>
+</div>
+
+<script>
+  const targetDate = new Date("2025-08-31T10:00:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      document.getElementById("countdown").innerHTML = "<p>🎉 Đám cưới đã diễn ra! Cảm ơn bạn!</p>";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+  }
+
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đám cưới Linh & Huy</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      background: #fff8f2;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background: #ffe0e6;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 3em;
+      color: #c25c5c;
+    }
+    .section {
+      padding: 60px 20px;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 2em;
+      margin-top: 20px;
+    }
+    .time-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-width: 80px;
+    }
+    .label {
+      font-size: 0.5em;
+      color: #888;
+    }
+    .btn {
+      padding: 12px 24px;
+      background: #c25c5c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    form input {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .nav {
+      background: #fcd3d9;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #c25c5c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="#wedding">Lễ cưới</a>
+  <a href="#gallery">Hình ảnh</a>
+  <a href="#rsvp">Xác nhận</a>
+</div>
+
+<header>
+  <h1>Linh & Huy</h1>
+  <p>Chúng tôi sắp cưới vào lúc <strong>10:00 sáng - 31/08/2025</strong></p>
+
+  <div class="countdown" id="countdown">
+    <div class="time-box">
+      <div id="days">--</div>
+      <div class="label">Ngày</div>
+    </div>
+    <div class="time-box">
+      <div id="hours">--</div>
+      <div class="label">Giờ</div>
+    </div>
+    <div class="time-box">
+      <div id="minutes">--</div>
+      <div class="label">Phút</div>
+    </div>
+    <div class="time-box">
+      <div id="seconds">--</div>
+      <div class="label">Giây</div>
+    </div>
+  </div>
+</header>
+
+<div class="section" id="wedding">
+  <h2>💒 Thông tin lễ cưới</h2>
+  <p>📍 Nhà hàng Diamond Palace, Quận 1, TP.HCM</p>
+  <p>🕒 Thời gian: 10:00 sáng - Ngày 31/08/2025</p>
+  <a class="btn" href="#rsvp">Xác nhận tham dự</a>
+</div>
+
+<div class="section" id="gallery">
+  <h2>📸 Hình ảnh kỷ niệm</h2>
+  <div class="gallery">
+    <img src="https://via.placeholder.com/400x300?text=Ảnh+1" alt="Ảnh cưới 1">
+    <img src="https://via.placeholder.com/400x300?text=Ảnh+2" alt="Ảnh cưới 2">
+    <img src="https://via.placeholder.com/400x300?text=Ảnh+3" alt="Ảnh cưới 3">
+    <img src="https://via.placeholder.com/400x300?text=Ảnh+4" alt="Ảnh cưới 4">
+    <img src="https://via.placeholder.com/400x300?text=Ảnh+5" alt="Ảnh cưới 5">
+    <img src="https://via.placeholder.com/400x300?text=Ảnh+6" alt="Ảnh cưới 6">
+  </div>
+</div>
+
+<div class="section" id="rsvp">
+  <h2>🎉 Xác nhận tham dự</h2>
+  <form>
+    <input type="text" placeholder="Tên của bạn" required><br>
+    <input type="number" placeholder="Số người đi cùng"><br>
+    <button class="btn" type="submit">Gửi lời chúc</button>
+  </form>
+</div>
+
+<script>
+  const targetDate = new Date("2025-08-31T10:00:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      document.getElementById("countdown").innerHTML = "<p>🎉 Đám cưới đã diễn ra! Cảm ơn bạn!</p>";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+  }
+
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
